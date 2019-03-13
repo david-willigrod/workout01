@@ -5,6 +5,7 @@
 library(readr)
 library(dplyr)
 
+
 iguodala <- read.csv("data/andre-iguodala.csv", stringsAsFactors = FALSE)
 green <- read.csv("data/draymond-green.csv", stringsAsFactors = FALSE)
 durant <- read.csv("data/kevin-durant.csv", stringsAsFactors = FALSE)
@@ -91,3 +92,10 @@ effective_shooting<- both %>%
             perc_made = made/total_shots,
             eperc_made = sum(total * eperc_made)/total_shots)
 
+team_effective_shooting <- both %>%
+  summarise(total_shots = sum(total),
+            made = sum(made),
+            perc_made = made/total_shots,
+            eperc_made = sum(total * eperc_made)/total_shots)
+
+save.image('code/make-shots-data-script-image.RData')

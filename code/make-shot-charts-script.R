@@ -71,9 +71,19 @@ ggsave(filename = 'images/klay-thompson-shot-chart.pdf',
        device = 'pdf',
        width = 6.5, height = 5)
 
+ggsave(filename = 'images/klay-thompson-shot-chart.png', 
+       plot = klay_shot_chart,
+       device = 'png',
+       width = 6.5, height = 5)
+
 ggsave(filename = 'images/andre-iguodala-shot-chart.pdf', 
        plot = andre_shot_chart,
        device = 'pdf',
+       width = 6.5, height = 5)
+
+ggsave(filename = 'images/andre-iguodala-shot-chart.png', 
+       plot = andre_shot_chart,
+       device = 'png',
        width = 6.5, height = 5)
 
 ggsave(filename = 'images/draymond-green-shot-chart.pdf', 
@@ -81,14 +91,29 @@ ggsave(filename = 'images/draymond-green-shot-chart.pdf',
        device = 'pdf',
        width = 6.5, height = 5)
 
+ggsave(filename = 'images/draymond-green-shot-chart.png', 
+       plot = draymond_shot_chart,
+       device = 'png',
+       width = 6.5, height = 5)
+
 ggsave(filename = 'images/kevin-durant-shot-chart.pdf', 
        plot = kevin_shot_chart,
        device = 'pdf',
        width = 6.5, height = 5)
 
+ggsave(filename = 'images/kevin-durant-shot-chart.png', 
+       plot = kevin_shot_chart,
+       device = 'png',
+       width = 6.5, height = 5)
+
 ggsave(filename = 'images/stephen-curry-shot-chart.pdf', 
        plot = stephen_shot_chart,
        device = 'pdf',
+       width = 6.5, height = 5)
+
+ggsave(filename = 'images/stephen-curry-shot-chart.png', 
+       plot = stephen_shot_chart,
+       device = 'png',
        width = 6.5, height = 5)
 
 shots_chart <- ggplot(data = shots) +
