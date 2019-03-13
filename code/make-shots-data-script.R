@@ -65,3 +65,29 @@ summary(shots)
 sink()
 
 save.image("code/shots-data-tables.RData")
+
+two_point_shooting <- shots %>%
+  group_by(name) %>%
+  filter(shot_type == '2PT Field Goal') %>%
+  summarise(total = n(),
+            made = sum(shot_made_flag == 'shot_yes'),
+            perc_made = sum(shot_made_flag == 'shot_yes')/ n(),
+            eperc_made = perc_made)
+
+three_point_shooting <- shots %>%
+  group_by(name) %>%
+  filter(shot_type == '3PT Field Goal') %>%
+  summarise(total = n(),
+            made = sum(shot_made_flag == 'shot_yes'),
+            perc_made = sum(shot_made_flag == 'shot_yes')/ n(),
+            eperc_made = perc_made * 1.5)
+
+both <- rbind(two_point_shooting, three_point_shooting)
+
+effective_shooting<- both %>%
+  group_by(name) %>%
+  summarise(total_shots = sum(total),
+            made = sum(made),
+            perc_made = made/total_shots,
+            eperc_made = sum(total * eperc_made)/total_shots)
+
